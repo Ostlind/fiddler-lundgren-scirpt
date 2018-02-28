@@ -53,7 +53,7 @@ function Convert-CsvFile
                         $tagName = $PSItem.A_TAG
                         $address = (( $PSItem.A_IOAD) -split ':')[1]
                         $description = $PSItem.A_DESC
-                        $dataTypeChar = (( $($PSItem.A_IOAD) -split ':')[1] -split ',')[1].Substring(0, 1)
+                        $dataTypeChar = ($address -split ',')[1].Substring(0, 1)
 
                         switch ($dataTypeChar)
                         {
@@ -70,12 +70,6 @@ function Convert-CsvFile
                     }
                 }
             }
-
-            # $csvFileRows | ConvertTo-Csv  | Select-Object -Skip 1 | Out-File -Append -FilePath ".\$transformedFile" -Encoding utf8
-            # $csvFileRows  | ConvertTo-Csv -NoTypeInformation | Select-Object -Skip 1 | Add-Content -Path ".\$transformedFile"
-            # Add-Content -Path ".\$transformedFile" -Value  "`n"
-            # Export-Csv -Append -Path ".\$transformedFile" -Encoding utf8 -Force
-
         }
 
     }
