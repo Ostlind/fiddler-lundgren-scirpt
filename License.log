@@ -1,0 +1,54 @@
+    ======  ======
+    Time:2018-01-22 09:19:20
+    Title: Initiate log
+    Message: 
+    Time:2018-01-22 09:19:20
+    Title: Initiate InternalManager
+    Message: Trying to Validate License
+    Time:2018-01-22 09:19:20
+    Title: Requesting EVT
+    Message: EVTP
+    Time:2018-01-22 09:19:20
+    Title: Requesting Validation
+    Message: ILMValidate
+    Time:2018-01-22 09:19:20
+    Title: LICENSER
+    Message: TRL MODE
+    Time:2018-01-22 09:19:20
+    Title: LICENSER
+    Message: DS LEFT20
+    Time:2018-01-22 09:19:20
+    Title: LICENSER
+    Message: DT MARK PASSED20.00:00:00
+    Time:2018-01-22 09:19:24
+    Title: Requesting Validation
+    Message: ILMValidate True
+    Time:2018-01-22 09:19:24
+    Title: Requesting Validation
+    Message: ILMValidate True Trial
+    devenv.exe Information: 0 : 2018-01-22 08:19:36:  - TokenCache: Deserialized 2 items to token cache.
+    Web method running: [https://app.vssps.visualstudio.com/_apis/connectionData?connectOptions=IncludeServices&lastChangeId=1045&lastChangeId64=1045] (GET)connectionData[connectionData]
+    Web method running: [https://app.vssps.visualstudio.com/_apis/connectionData?connectOptions=IncludeServices&lastChangeId=1045&lastChangeId64=1045] (GET)connectionData[connectionData]
+    Web method response: [https://app.vssps.visualstudio.com/_apis/connectionData?connectOptions=IncludeServices&lastChangeId=1045&lastChangeId64=1045] (GET)connectionData[connectionData] 980 ms
+    Web method running: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/connectionData?connectOptions=IncludeServices&lastChangeId=35152&lastChangeId64=35152] (GET)connectionData[connectionData]
+    Web method response: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/connectionData?connectOptions=IncludeServices&lastChangeId=35152&lastChangeId64=35152] (GET)connectionData[connectionData] 697 ms
+    Web method running: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Profiles/me?details=true&withattributes=false&coreattributes=Minimal%2CEmail%2CAvatar%2CDisplayName%2CAll] (GET)me[Profile]
+    Web method response: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Profiles/me?details=true&withattributes=false&coreattributes=Minimal%2CEmail%2CAvatar%2CDisplayName%2CAll] (GET)me[Profile] 260 ms
+    Web method running: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Locations?profilePageType=Update] (GET)Locations[Profile]
+    Web method response: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Locations?profilePageType=Update] (GET)Locations[Profile] 205 ms
+    Web method running: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Settings/ProfileRefreshInterval] (GET)ProfileRefreshInterval[Profile]
+    Web method response: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Settings/ProfileRefreshInterval] (GET)ProfileRefreshInterval[Profile] 241 ms
+    Web method running: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Profiles/me/Attributes?partition=VisualStudio.14_PreferredProfile&modifiedafterrevision=510034] (GET)Attributes[Profile]
+    Web method running: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Profiles/me/Avatar?size=Small] (GET)Avatar[Profile]
+    Web method running: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Profiles/me/Avatar?size=Large] (GET)Avatar[Profile]
+    Web method response: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Profiles/me/Attributes?partition=VisualStudio.14_PreferredProfile&modifiedafterrevision=510034] (GET)Attributes[Profile] 250 ms
+    Web method response: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Profiles/me/Avatar?size=Large] (GET)Avatar[Profile] 432 ms
+    Web method response: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Profiles/me/Avatar?size=Small] (GET)Avatar[Profile] 568 ms
+    Web method running: [https://app.vssps.visualstudio.com/_apis/Licensing/ClientRights/VisualStudio?productVersion=14.0.25420.1%20D14REL&edition=Professional&relType=release&includeCertificate=true&canary=3330e7a5-6a98-499c-9888-3d2bccc6972c&machineId=3330e7a5-6a98-499c-9888-3d2bccc6972c&t-PidInfo=4000&t-UserMachineId=3330e7a5-6a98-499c-9888-3d2bccc6972c&t-GlobalMachineId=abfc123e-fb52-4a10-bfb6-a92730254997&t-VsInstanceId=ae66413a-84ac-4469-a5ab-bddd6607f996] (GET)VisualStudio[Licensing]
+    Web method response: [https://app.vssps.visualstudio.com/_apis/Licensing/ClientRights/VisualStudio?productVersion=14.0.25420.1%20D14REL&edition=Professional&relType=release&includeCertificate=true&canary=3330e7a5-6a98-499c-9888-3d2bccc6972c&machineId=3330e7a5-6a98-499c-9888-3d2bccc6972c&t-PidInfo=4000&t-UserMachineId=3330e7a5-6a98-499c-9888-3d2bccc6972c&t-GlobalMachineId=abfc123e-fb52-4a10-bfb6-a92730254997&t-VsInstanceId=ae66413a-84ac-4469-a5ab-bddd6607f996] (GET)VisualStudio[Licensing] 994 ms
+    Web method running: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Profiles/me/Attributes?partition=VisualStudio.14_PreferredProfile&withcoreattributes=true&coreattributes=Minimal%2CEmail%2CAvatar%2CDisplayName%2CAll&modifiedafterrevision=510034] (GET)Attributes[Profile]
+    Web method response: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Profiles/me/Attributes?partition=VisualStudio.14_PreferredProfile&withcoreattributes=true&coreattributes=Minimal%2CEmail%2CAvatar%2CDisplayName%2CAll&modifiedafterrevision=510034] (GET)Attributes[Profile] 416 ms
+    Web method running: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Profiles/me/Avatar?size=Small] (GET)Avatar[Profile]
+    Web method running: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Profiles/me/Avatar?size=Large] (GET)Avatar[Profile]
+    Web method response: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Profiles/me/Avatar?size=Large] (GET)Avatar[Profile] 168 ms
+    Web method response: [https://vsspsextprodch1su1.vsspsext.visualstudio.com/_apis/Profile/Profiles/me/Avatar?size=Small] (GET)Avatar[Profile] 372 ms

@@ -1,0 +1,4 @@
+﻿Tag Name,Address,Data Type,Respect Data Type,Client Access,Scan Rate,Scaling,Raw Low,Raw High,Scaled Low,Scaled High,Scaled Data Type,Clamp Low,Clamp High,Eng Units,Description,Negate Value
+"Bool1","DB0601,X0073.0",Boolean,1,R/W,1000,,,,,,,,,,"",
+"Double1","DB0046,D0156",DWord,1,R/W,1000,,,,,,,,,,"",
+"Word1","DB1002,W0076",Word,1,R/W,1000,,,,,,,,,,"",
