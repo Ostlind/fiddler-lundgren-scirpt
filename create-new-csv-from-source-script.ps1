@@ -15,9 +15,9 @@ function Convert-CsvFile
     {
 
         # Set-StrictMode -Version 5.1
-        $ErrorActionPreference = "Stop"
+        $ErrorActionPreference = "SilentlyContinue"
         $root = $PSScriptRoot
-        $sourceFile = 'S:\powershell-scripts\fiddler-lundgren\ORLIK fullexport old server.csv'
+        $sourceFile = 'S:\powershell-scripts\fiddler-lundgren\orlik45.csv'
         $newFileHeader = 'Tag Name,Address,Data Type,Respect Data Type,Client Access,Scan Rate,Scaling,Raw Low,Raw High,Scaled Low,Scaled High,Scaled Data Type,Clamp Low,Clamp High,Eng Units,Description,Negate Value'
 
         $newFileName = 'new-s7300.csv'
@@ -37,38 +37,67 @@ function Convert-CsvFile
 
         for ($i = 1; $i -le $sectionCount; $i++)
         {
-
+            $delim = ".", ";", "-", " "
             $localContent = $content[$i] -split '\r\n'
             $header1 = $localContent[0]
             $header2 = $localContent[1]
             $csvFileRows = $localContent | Select-Object -Skip 1 | ConvertFrom-Csv -UseCulture
-
-            $csvFileRows | ForEach-Object {
-
-                if ((Get-Member -inputobject $PSItem -name "A_TAG" -Membertype Properties) -and ($PSItem.A_IODV -eq "SIX"))
-                {
-                    if (Get-Member -inputobject $PSItem -name "A_IOAD" -Membertype Properties  )
+            Try
+            {
+                $csvFileRows | ForEach-Object {
+                    if ((Get-Member -inputobject $PSItem -name "A_IODV" -Membertype Properties) -and ($PSItem.A_IODV -eq "SIX"))
                     {
-                        $dataType = [string]::Empty
-                        $tagName = $PSItem.A_TAG
-                        $address = (( $PSItem.A_IOAD) -split ':')[1]
-                        $description = $PSItem.A_DESC
-                        $dataTypeChar = ($address -split ',')[1].Substring(0, 1)
-
-                        switch ($dataTypeChar)
+                        if (Get-Member -inputobject $PSItem -name "A_IOAD" -Membertype Properties  )
                         {
-                            'D' { $dataType = "DWord" }
-                            'W' { $dataType = "Word"}
-                            'X' { $dataType = "Boolean" }
-                            Default {}
+                            if ([string]::IsNullOrEmpty($PSItem.A_IOAD))
+                            {
+                                return
+                            }
+
+                            $dataType = [string]::Empty
+                            $tagName = $PSItem.A_TAG
+                            $address = (( $PSItem.A_IOAD) -split ':')[1]
+
+                            if (!$address)
+                            {
+                                return
+                            }
+
+                            $description = $PSItem.A_DESC
+                            $dataTypeChar = ($address -split { $_ -eq " " -or $_ -eq "," } )[1].Substring(0, 1)
+                            $addressSplit = $address.Split(".,  ")                            # $dataTypeChar = ($address -split {$delim -contains $_} )[1].Substring(0, 1)
+
+                            if ($addressSplit[0].length -eq 1)
+                            {
+                                $dataTypeChar = $addressSplit[0]
+                            }
+                            else {
+
+                                $dataTypeChar = $addressSplit[1].Substring(0,1)
+                            }
+
+                            switch ($dataTypeChar.ToLower())
+                            {
+                                'd' { $dataType = "DWord" }
+                                'w' { $dataType = "Word"}
+                                'x' { $dataType = "Boolean" }
+                                'q' { $dataType = "Boolean"}
+                                Default {}
+                            }
+
+                            $newRow = """$tagName"",""$address"",$dataType,1,R/W,1000,,,,,,,,,,""$description"","
+
+                            Add-Content -Path ".\$newFileName" -Value $newRow
+
                         }
-
-                        $newRow = """$tagName"",""$address"",$dataType,1,R/W,1000,,,,,,,,,,""$description"","
-
-                        Add-Content -Path ".\$newFileName" -Value $newRow
-
                     }
                 }
+            }
+            Catch
+            {
+                $ErrorMessage = $_.Exception.Message
+                $FailedItem = $_.Exception.ItemName
+                Break
             }
         }
 
