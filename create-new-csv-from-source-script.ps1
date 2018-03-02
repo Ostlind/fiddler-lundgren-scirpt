@@ -10,7 +10,6 @@ function Convert-CsvFile
         [string[]]
         $CsvSourcePath
     )
-
     begin
     {
 
@@ -45,6 +44,7 @@ function Convert-CsvFile
             Try
             {
                 $csvFileRows | ForEach-Object {
+                    # Check if members exist and that the driver name is SIX
                     if ((Get-Member -inputobject $PSItem -name "A_IODV" -Membertype Properties) -and ($PSItem.A_IODV -eq "SIX"))
                     {
                         if (Get-Member -inputobject $PSItem -name "A_IOAD" -Membertype Properties  )
@@ -64,6 +64,7 @@ function Convert-CsvFile
                             }
 
                             $description = $PSItem.A_DESC
+                            # Split on either space or colon
                             $dataTypeChar = ($address -split { $_ -eq " " -or $_ -eq "," } )[1].Substring(0, 1)
                             $addressSplit = $address.Split(".,  ")                            # $dataTypeChar = ($address -split {$delim -contains $_} )[1].Substring(0, 1)
 
@@ -71,9 +72,10 @@ function Convert-CsvFile
                             {
                                 $dataTypeChar = $addressSplit[0]
                             }
-                            else {
+                            else
+                            {
 
-                                $dataTypeChar = $addressSplit[1].Substring(0,1)
+                                $dataTypeChar = $addressSplit[1].Substring(0, 1)
                             }
 
                             switch ($dataTypeChar.ToLower())
